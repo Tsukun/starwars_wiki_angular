@@ -7,15 +7,30 @@
     }
 }
 
-.buttons{
-    margin-bottom: .5rem;
+.carousel-btn{
+    background-color: #c51098; /* Green */
+    border: none;
+    border-radius: 50%;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }
-
+.carousel-buttons{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
 .carousel-outer{
     width: 50%;
     margin: auto;
 }
-
+.planet-slide{
+    filter: blur(.3rem);
+}
 .carousel-inner{
     text-align: center;
     margin: auto;
