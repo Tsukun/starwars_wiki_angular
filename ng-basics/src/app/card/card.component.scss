@@ -1,37 +1,62 @@
 .card {
-    padding: .5rem 1rem;
-    border: 1px dashed #ccc;
-    margin-bottom: 1rem;
-    h2 {
-        margin-bottom: .5rem;
-    }
+  padding: 0.5rem 1rem;
+  border: 1px dashed #ccc;
+  margin-bottom: 1rem;
+  h2 {
+    margin-bottom: 0.5rem;
+  }
+}
+.carousel-text {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  margin-left: -100px;
+  width: fit-content;
+  text-align: center;
+  background: #2e2f45;
+  color: #c51098;
+  font-size: 40px;
+}
+.carousel-btn {
+  background-color: #c51098;
+  border: none;
+  width: fit-content;
+  border-radius: 50%;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
 
-.carousel-btn{
-    background-color: #c51098; /* Green */
-    border: none;
-    border-radius: 50%;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+.carousel-btn:hover {
+  background-color: #cc2ba4;
+  border: none;
+  width: fit-content;
+  border-radius: 50%;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
-.carousel-buttons{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
+
+.carousel-buttons {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
 }
-.carousel-outer{
-    width: 50%;
-    margin: auto;
+.carousel-outer {
+  width: 50%;
+  margin: auto;
 }
-.planet-slide{
-    filter: blur(.3rem);
+.planet-slide {
+  filter: blur(0.2rem);
 }
-.carousel-inner{
-    text-align: center;
-    margin: auto;
+.carousel-inner {
+  text-align: center;
+  margin: auto;
 }

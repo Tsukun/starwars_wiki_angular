@@ -6,18 +6,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { CardComponent } from './card/card.component';
 
-import { PlanetService } from './card/card.service'
+import { PlanetService } from './card/card.service';
+import { InfoComponent } from './info/info.component';
 @NgModule({
-  declarations: [ //Объявление компонентов
+  declarations: [
+    //Объявление компонентов
     AppComponent,
-    CardComponent
+    CardComponent,
+    InfoComponent,
   ],
-  imports: [ //Объявление модулей
+  imports: [
+    //Объявление модулей
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [PlanetService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
