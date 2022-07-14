@@ -10,8 +10,6 @@ import { IPlanet } from '../../interface/planet';
   providers: [PlanetService],
 })
 export class CardComponent implements OnInit, DoCheck {
-  title: string = 'My Card Title';
-  text: string = 'Lorem ipsum';
   planetArr: IPlanet[] = [];
   i: number = 0;
   constructor(private planetService: PlanetService) {}
@@ -19,7 +17,6 @@ export class CardComponent implements OnInit, DoCheck {
     if (!this.planetService.isLoading) {
       this.planetService.getPlanets();
     }
-    console.log(this.planetArr);
   }
   ngDoCheck() {
     if (this.planetService.planets.length != 0) {

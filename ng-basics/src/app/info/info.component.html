@@ -6,4 +6,13 @@
   <p class="info-text">Terrain: {{ infoPlanet?.terrain }}</p>
   <p class="info-text">Surface water: {{ infoPlanet?.surface_water }}</p>
   <p class="info-text">Population: {{ infoPlanet?.population }}</p>
+  <div class="info-res">
+    <input type="checkbox" (change)="setGender('male')">
+    <label class="info-text">Male</label>
+    <input type="checkbox" (change)="setGender('female')">
+    <label class="info-text">Female</label>
+  </div>
+  <div class="info-res">Residents: 
+  <p class="info-text"  *ngFor="let resident of filterResidents">{{resident.name}}</p>
+  <div>
 </div>
