@@ -13,19 +13,17 @@ export class CardComponent implements OnInit, DoCheck {
   planetArr: IPlanet[] = [];
   i: number = 0;
   constructor(private planetService: PlanetService) {}
-  ngOnInit() {
-    if (!this.planetService.isLoading) {
-      this.planetService.getPlanets();
-    }
+  ngOnInit(): void {
+    this.planetService.getPlanets();
   }
-  ngDoCheck() {
+  ngDoCheck(): void {
     if (this.planetService.planets.length != 0) {
       this.planetArr = this.planetService.planets;
     }
   }
 
-  showSlide() {
-    let slide = 'No name';
+  showSlide(): string {
+    let slide: string = 'No name';
     if (this.planetArr.length != 0) {
       if (this.i < 0) {
         this.i = this.planetArr.length - 1;
@@ -37,17 +35,13 @@ export class CardComponent implements OnInit, DoCheck {
     return slide;
   }
 
-  getPrev() {
+  getPrev(): void {
     this.i = this.i - 1;
     this.showSlide();
   }
 
-  getNext() {
+  getNext(): void {
     this.i = this.i + 1;
     this.showSlide();
-  }
-
-  getResident() {
-    console.log(this.planetArr[this.i]);
   }
 }

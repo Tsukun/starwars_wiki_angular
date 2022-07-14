@@ -11,18 +11,18 @@ export class ResidentService {
 
   getResident(baseUrl: string[]): IResident[] {
     this.isLoading = true;
-    this.resInfo = []
+    this.resInfo = [];
     baseUrl.forEach(element => {
       this.http.get(element).subscribe((data: any) => {
-          let resident: IResident = {
-            name: data.name,
-            gender: data.gender,
-          };
+        let resident: IResident = {
+          name: data.name,
+          gender: data.gender,
+        };
 
-          this.resInfo.push(resident);
+        this.resInfo.push(resident);
         this.isLoading = false;
       });
     });
-    return this.resInfo
+    return this.resInfo;
   }
 }

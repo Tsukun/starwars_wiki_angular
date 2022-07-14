@@ -28,7 +28,7 @@ export class PlanetService {
 
         this.planets.push(planet);
       });
-      this.isLoading = false;
     });
+    this.isLoading = false;
   }
 }

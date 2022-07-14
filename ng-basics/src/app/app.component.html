@@ -1,3 +1,4 @@
 <div classs="container">
-  <app-card></app-card>
+  <div class="loader" *ngIf="isPlanetService">...Loading</div>
+  <app-card *ngIf="!isPlanetService"></app-card>
 </div>

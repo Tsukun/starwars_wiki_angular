@@ -1,46 +1,31 @@
-.card {
-  padding: 0.5rem 1rem;
-  border: 1px dashed #ccc;
-  margin-bottom: 1rem;
-  h2 {
-    margin-bottom: 0.5rem;
-  }
-}
 .carousel-text {
   position: absolute;
-  top: 15%;
+  top: 20%;
   left: 50%;
-  margin-left: -100px;
+  transform: translate(-50%, -50%);
   width: fit-content;
-  text-align: center;
   background: #2e2f45;
+  text-shadow: -3px 2px 3px rgba(53, 2, 66, 0.78);
   color: #c51098;
   font-size: 40px;
 }
 .carousel-btn {
-  background-color: #5c0a47;
+  background-color: #e267c3;
   border: none;
   width: fit-content;
-  border-radius: 50%;
-  color: white;
+  border-radius: 45%;
+  color: #ffffff;
   padding: 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
+  text-shadow: -3px 2px 3px rgba(85, 83, 85, 0.78);
   font-size: 16px;
 }
 
 .carousel-btn:hover {
-  background-color: #7e1e66;
-  border: none;
-  width: fit-content;
-  border-radius: 50%;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+  background-color: rgb(180, 66, 152);
+  cursor: pointer;
 }
 
 .carousel-buttons {
@@ -55,8 +40,12 @@
 }
 .planet-slide {
   filter: blur(0.2rem);
+  width: 50%;
 }
 .carousel-inner {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: auto;
 }

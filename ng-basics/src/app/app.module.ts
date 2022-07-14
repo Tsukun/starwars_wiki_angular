@@ -8,6 +8,7 @@ import { CardComponent } from './card/card.component';
 
 import { PlanetService } from './card/card.service';
 import { InfoComponent } from './info/info.component';
+import { ResidentService } from './info/info.service';
 @NgModule({
   declarations: [
     //Объявление компонентов
@@ -21,7 +22,7 @@ import { InfoComponent } from './info/info.component';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [PlanetService],
+  providers: [PlanetService, ResidentService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

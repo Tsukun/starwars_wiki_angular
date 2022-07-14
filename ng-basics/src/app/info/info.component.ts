@@ -16,27 +16,21 @@ export class InfoComponent implements OnInit, OnChanges {
   infoResidents: IResident[] = [];
   filterResidents: IResident[] = [];
   loaded: boolean = false;
-  isCheckhed: boolean = false;
-  ngOnInit(): void {
-    
 
-  }
-  setGender(gender: string){
-    this.isCheckhed = !this.isCheckhed
-   if(this.isCheckhed){
-    this.filterResidents = this.infoResidents.filter(resident => resident.gender == gender)
-   }
-   else{
-    this.filterResidents = this.infoResidents
-   }
+  ngOnInit(): void {}
+  setGender(gender: string) {
+    if (gender == 'all') {
+      this.filterResidents = this.infoResidents;
+    } else {
+      this.filterResidents = this.infoResidents.filter(resident => resident.gender == gender);
+    }
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if(this.infoPlanet!=undefined){
-      this.infoResidents = this.resService.getResident(this.infoPlanet.residents) 
-      this.loaded = true
+    if (this.infoPlanet != undefined) {
+      this.infoResidents = this.resService.getResident(this.infoPlanet.residents);
+      this.loaded = true;
     }
-    this.filterResidents = this.infoResidents
-  
+    this.filterResidents = this.infoResidents;
   }
 }
