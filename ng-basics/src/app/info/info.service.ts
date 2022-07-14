@@ -18,11 +18,10 @@ export class ResidentService {
           name: data.name,
           gender: data.gender,
         };
-
         this.resInfo.push(resident);
-        this.isLoading = false;
       });
     });
+    this.isLoading = false;
     return this.resInfo;
   }
 }

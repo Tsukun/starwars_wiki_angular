@@ -12,6 +12,7 @@ export class PlanetService {
   getPlanets() {
     this.isLoading = true;
     this.http.get(this.baseUrl).subscribe((data: any) => {
+      this.isLoading = false;
       data.results.forEach((element: any) => {
         let planet: IPlanet = {
           name: element.name,
@@ -29,6 +30,5 @@ export class PlanetService {
         this.planets.push(planet);
       });
     });
-    this.isLoading = false;
   }
 }

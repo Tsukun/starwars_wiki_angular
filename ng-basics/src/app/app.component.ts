@@ -8,12 +8,13 @@ import { PlanetService } from './card/card.service';
   providers: [PlanetService],
 })
 export class AppComponent implements OnInit, DoCheck {
-  isPlanetService: boolean = true;
   constructor(private planetService: PlanetService) {}
+  isLoadedPlanet: boolean = true;
   ngOnInit() {
     this.planetService.getPlanets();
-    this.isPlanetService = this.planetService.isLoading;
   }
 
-  ngDoCheck(): void {}
+  ngDoCheck(): void {
+    this.isLoadedPlanet = this.planetService.isLoading;
+  }
 }

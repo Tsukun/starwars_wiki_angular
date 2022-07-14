@@ -8,14 +8,15 @@ import { ResidentService } from './info.service';
   styleUrls: ['./info.component.scss'],
   providers: [ResidentService],
 })
-export class InfoComponent implements OnInit, OnChanges {
+export class InfoComponent implements OnInit, OnChanges, DoCheck {
   constructor(private resService: ResidentService) {}
+
   @Input()
   infoPlanet!: IPlanet;
 
   infoResidents: IResident[] = [];
   filterResidents: IResident[] = [];
-  loaded: boolean = false;
+  isLoadedResidents: boolean = false;
 
   ngOnInit(): void {}
   setGender(gender: string) {
@@ -29,8 +30,12 @@ export class InfoComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (this.infoPlanet != undefined) {
       this.infoResidents = this.resService.getResident(this.infoPlanet.residents);
-      this.loaded = true;
     }
+
     this.filterResidents = this.infoResidents;
+  }
+
+  ngDoCheck(): void {
+    this.isLoadedResidents = this.resService.isLoading;
   }
 }

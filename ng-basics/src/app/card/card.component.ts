@@ -23,7 +23,7 @@ export class CardComponent implements OnInit, DoCheck {
   }
 
   showSlide(): string {
-    let slide: string = 'No name';
+    let slide: string = '';
     if (this.planetArr.length != 0) {
       if (this.i < 0) {
         this.i = this.planetArr.length - 1;
