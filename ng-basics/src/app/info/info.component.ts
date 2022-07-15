@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { IResident } from 'src/interface/resident';
@@ -11,7 +11,7 @@ import { Location } from '@angular/common';
   templateUrl: './info.component.html',
   styleUrls: ['./info.component.scss'],
 })
-export class InfoComponent implements OnInit {
+export class InfoComponent implements OnInit, DoCheck {
   infoPlanet!: IPlanet;
   private subscription: Subscription;
   infoResidents: IResident[] = [];
@@ -30,6 +30,7 @@ export class InfoComponent implements OnInit {
       params => (this.planetName = params['planet']),
     );
   }
+
   ngOnInit(): void {
     this.infoPlanet = this.planetService.planets.filter(
       element => element.name == this.planetName,
@@ -37,6 +38,10 @@ export class InfoComponent implements OnInit {
 
     this.infoResidents = this.resService.getResident(this.infoPlanet.residents);
     this.filterResidents = this.resService.resInfo;
+  }
+
+  ngDoCheck(): void {
+    this.isLoadedResidents = this.resService.isLoading;
   }
   setGender(gender: string) {
     if (gender == 'all') {

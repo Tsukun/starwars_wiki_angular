@@ -1,5 +1,6 @@
 <div class="info-outer">
   <div class="info-text">
+    <h1>{{ infoPlanet?.name }}</h1>
     <p>Climate: {{ infoPlanet?.climate }}</p>
     <p>Orbital period: {{ infoPlanet?.orbital_period }}</p>
     <p>Diameter: {{ infoPlanet?.diameter }}</p>
@@ -8,6 +9,7 @@
     <p>Surface water: {{ infoPlanet?.surface_water }}</p>
     <p>Population: {{ infoPlanet?.population }}</p>
   </div>
+  <div class="loader" *ngI="isLoadedResidents"></div>
   <div *ngIf="!isLoadedResidents">
     <div class="info-radio">
       <input type="radio" name="gender" (change)="setGender('male')" />
@@ -17,6 +19,7 @@
       <input type="radio" name="gender" (change)="setGender('all')" checked />
       <label class="info-text">All</label>
     </div>
+
     <div class="info-res">
       Residents:
       <div *ngFor="let resident of filterResidents">
