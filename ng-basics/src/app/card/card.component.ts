@@ -14,9 +14,7 @@ export class CardComponent implements OnInit, DoCheck {
   hiden: boolean = false;
   i: number = 0;
   constructor(private planetService: PlanetService, private router: Router) {}
-  ngOnInit(): void {
-    console.log(this.planetService.planets);
-  }
+  ngOnInit(): void {}
   ngDoCheck(): void {
     if (this.planetService.planets.length != 0) {
       this.planetArr = this.planetService.planets;

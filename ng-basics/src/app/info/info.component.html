@@ -1,11 +1,13 @@
 <div class="info-outer">
-  <p class="info-text">Climate: {{ infoPlanet?.climate }}</p>
-  <p class="info-text">Orbital period: {{ infoPlanet?.orbital_period }}</p>
-  <p class="info-text">Diameter: {{ infoPlanet?.diameter }}</p>
-  <p class="info-text">Gravity: {{ infoPlanet?.gravity }}</p>
-  <p class="info-text">Terrain: {{ infoPlanet?.terrain }}</p>
-  <p class="info-text">Surface water: {{ infoPlanet?.surface_water }}</p>
-  <p class="info-text">Population: {{ infoPlanet?.population }}</p>
+  <div class="info-text">
+    <p>Climate: {{ infoPlanet?.climate }}</p>
+    <p>Orbital period: {{ infoPlanet?.orbital_period }}</p>
+    <p>Diameter: {{ infoPlanet?.diameter }}</p>
+    <p>Gravity: {{ infoPlanet?.gravity }}</p>
+    <p>Terrain: {{ infoPlanet?.terrain }}</p>
+    <p>Surface water: {{ infoPlanet?.surface_water }}</p>
+    <p>Population: {{ infoPlanet?.population }}</p>
+  </div>
   <div *ngIf="!isLoadedResidents">
     <div class="info-radio">
       <input type="radio" name="gender" (change)="setGender('male')" />
@@ -17,11 +19,12 @@
     </div>
     <div class="info-res">
       Residents:
-      <div *ngFor="let resident of filterResidents" class="dropdown">
-        <p class="info-text" (click)="routeResident(resident.name)">
+      <div *ngFor="let resident of filterResidents">
+        <p class="char-res" (click)="routeResident(resident.name)">
           {{ resident.name }}
         </p>
       </div>
     </div>
   </div>
+  <button class="back-btn" (click)="routeBack()">Back</button>
 </div>

@@ -5,6 +5,7 @@ import { IResident } from 'src/interface/resident';
 import { IPlanet } from '../../interface/planet';
 import { PlanetService } from '../card/card.service';
 import { ResidentService } from './info.service';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-info',
   templateUrl: './info.component.html',
@@ -23,6 +24,7 @@ export class InfoComponent implements OnInit {
     private resService: ResidentService,
     private activateRoute: ActivatedRoute,
     private router: Router,
+    private location: Location,
   ) {
     this.subscription = activateRoute.params.subscribe(
       params => (this.planetName = params['planet']),
@@ -46,6 +48,9 @@ export class InfoComponent implements OnInit {
 
   routeResident(nameResident: string) {
     console.log(nameResident);
-    this.router.navigate([`resident/${nameResident}`]);
+    this.router.navigate(['resident/', nameResident]);
+  }
+  routeBack() {
+    this.location.back();
   }
 }
