@@ -1,4 +1,4 @@
-#Тестовое задание для компании RIT Automation
+# Тестовое задание для компании RIT Automation
 # Star Wars
 
 Главная страницы: /planets
