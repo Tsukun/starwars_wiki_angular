@@ -9,20 +9,23 @@ import { CardComponent } from './card/card.component';
 import { PlanetService } from './card/card.service';
 import { InfoComponent } from './info/info.component';
 import { ResidentService } from './info/info.service';
+import { AppRoutingModule } from './app-routing.module';
+import { ResidentComponent } from './resident/resident.component';
 @NgModule({
   declarations: [
     //Объявление компонентов
     AppComponent,
     CardComponent,
     InfoComponent,
+    ResidentComponent,
   ],
   imports: [
     //Объявление модулей
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    AppRoutingModule,
   ],
-  providers: [PlanetService, ResidentService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

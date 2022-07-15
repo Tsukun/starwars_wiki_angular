@@ -1,24 +1,41 @@
-import { Component, DoCheck, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { IResident } from 'src/interface/resident';
 import { IPlanet } from '../../interface/planet';
+import { PlanetService } from '../card/card.service';
 import { ResidentService } from './info.service';
 @Component({
   selector: 'app-info',
   templateUrl: './info.component.html',
   styleUrls: ['./info.component.scss'],
-  providers: [ResidentService],
 })
-export class InfoComponent implements OnInit, OnChanges, DoCheck {
-  constructor(private resService: ResidentService) {}
-
-  @Input()
+export class InfoComponent implements OnInit {
   infoPlanet!: IPlanet;
-
+  private subscription: Subscription;
   infoResidents: IResident[] = [];
   filterResidents: IResident[] = [];
   isLoadedResidents: boolean = false;
+  planetName: string | undefined;
 
-  ngOnInit(): void {}
+  constructor(
+    private planetService: PlanetService,
+    private resService: ResidentService,
+    private activateRoute: ActivatedRoute,
+    private router: Router,
+  ) {
+    this.subscription = activateRoute.params.subscribe(
+      params => (this.planetName = params['planet']),
+    );
+  }
+  ngOnInit(): void {
+    this.infoPlanet = this.planetService.planets.filter(
+      element => element.name == this.planetName,
+    )[0];
+
+    this.infoResidents = this.resService.getResident(this.infoPlanet.residents);
+    this.filterResidents = this.resService.resInfo;
+  }
   setGender(gender: string) {
     if (gender == 'all') {
       this.filterResidents = this.infoResidents;
@@ -27,15 +44,8 @@ export class InfoComponent implements OnInit, OnChanges, DoCheck {
     }
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (this.infoPlanet != undefined) {
-      this.infoResidents = this.resService.getResident(this.infoPlanet.residents);
-    }
-
-    this.filterResidents = this.infoResidents;
-  }
-
-  ngDoCheck(): void {
-    this.isLoadedResidents = this.resService.isLoading;
+  routeResident(nameResident: string) {
+    console.log(nameResident);
+    this.router.navigate([`resident/${nameResident}`]);
   }
 }

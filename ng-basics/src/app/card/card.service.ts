@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IPlanet } from '../../interface/planet';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class PlanetService {
   planets: IPlanet[] = [];
   baseUrl: string = 'https://swapi.dev/api/planets';

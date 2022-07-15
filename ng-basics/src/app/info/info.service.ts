@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IResident } from 'src/interface/resident';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class ResidentService {
   resInfo: IResident[] = [];
   isLoading: boolean = false;
@@ -17,6 +17,12 @@ export class ResidentService {
         let resident: IResident = {
           name: data.name,
           gender: data.gender,
+          height: data.height,
+          mass: data.mass,
+          hair_color: data.hair_color,
+          skin_color: data.skin_color,
+          eye_color: data.eye_color,
+          birth_year: data.birth_year,
         };
         this.resInfo.push(resident);
       });

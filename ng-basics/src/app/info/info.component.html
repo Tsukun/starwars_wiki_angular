@@ -17,7 +17,11 @@
     </div>
     <div class="info-res">
       Residents:
-      <p class="info-text" *ngFor="let resident of filterResidents">{{ resident.name }}</p>
+      <div *ngFor="let resident of filterResidents" class="dropdown">
+        <p class="info-text" (click)="routeResident(resident.name)">
+          {{ resident.name }}
+        </p>
+      </div>
     </div>
   </div>
 </div>

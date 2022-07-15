@@ -2,19 +2,20 @@ import { HttpClient } from '@angular/common/http';
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { PlanetService } from './card.service';
 import { IPlanet } from '../../interface/planet';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
-  providers: [PlanetService],
 })
 export class CardComponent implements OnInit, DoCheck {
   planetArr: IPlanet[] = [];
+  hiden: boolean = false;
   i: number = 0;
-  constructor(private planetService: PlanetService) {}
+  constructor(private planetService: PlanetService, private router: Router) {}
   ngOnInit(): void {
-    this.planetService.getPlanets();
+    console.log(this.planetService.planets);
   }
   ngDoCheck(): void {
     if (this.planetService.planets.length != 0) {
@@ -43,5 +44,8 @@ export class CardComponent implements OnInit, DoCheck {
   getNext(): void {
     this.i = this.i + 1;
     this.showSlide();
+  }
+  routeInfo(): void {
+    this.router.navigate([`info/${this.planetArr[this.i].name}`]);
   }
 }

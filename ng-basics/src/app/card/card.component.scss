@@ -8,6 +8,12 @@
   text-shadow: -3px 2px 3px rgba(53, 2, 66, 0.78);
   color: #c51098;
   font-size: 40px;
+  user-select: none;
+}
+.carousel-text:hover {
+  color: #a70c80;
+  background: #717279;
+  cursor: pointer;
 }
 .carousel-btn {
   background-color: #f142c6;

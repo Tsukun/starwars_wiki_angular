@@ -33,8 +33,28 @@
   display: flex;
   align-items: left;
   align-content: center;
+  width: fit-content;
   justify-content: left;
   flex-direction: row;
   text-align: left;
   margin-left: 1rem;
+}
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-content {
+  position: absolute;
+  width: fit-content;
+  left: 60%;
+  top: 60%;
+  padding: 1rem;
+  background-color: #2c2349;
+  border-radius: 25px 25px 25px 25px;
+  -webkit-box-shadow: 0px 0px 25px 7px rgba(187, 176, 187, 0.19);
+  -moz-box-shadow: 0px 0px 25px 7px rgba(187, 176, 187, 0.19);
+  box-shadow: 0px 0px 25px 7px rgba(187, 176, 187, 0.19);
+  z-index: 1;
 }

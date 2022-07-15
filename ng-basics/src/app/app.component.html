@@ -1,4 +1,4 @@
 <div classs="container">
   <div class="loader" *ngIf="isLoadedPlanet">...Loading</div>
-  <app-card *ngIf="!isLoadedPlanet"></app-card>
+  <router-outlet *ngIf="!isLoadedPlanet"></router-outlet>
 </div>

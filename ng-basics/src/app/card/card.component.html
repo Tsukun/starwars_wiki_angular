@@ -1,11 +1,10 @@
 <div class="carousel-outer">
   <div class="carousel-inner">
     <img src="../assets/planet.png" class="planet-slide" />
-    <p class="carousel-text">{{ showSlide() }}</p>
+    <p class="carousel-text" (click)="routeInfo()">{{ showSlide() }}</p>
     <div class="carousel-buttons">
       <button (click)="getPrev()" class="carousel-btn">Prev</button>
       <button (click)="getNext()" class="carousel-btn">Next</button>
     </div>
   </div>
 </div>
-<app-info [infoPlanet]="planetArr[i]"></app-info>
